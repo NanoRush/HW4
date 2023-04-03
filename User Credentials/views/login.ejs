@@ -1,0 +1,106 @@
+<!--
+<h1>login</h1>
+
+
+<form action="/login" method="POST">
+    
+    
+  
+
+    <div>
+    <label for="name">Email</label>
+    <input type="email" id="email" name="email" required>
+</div>
+
+<div>
+    <label for="name">Password</label>
+    <input type="password" id="password" name="password" required>
+</div>    
+<button type="submit">Login</button>
+</form>
+
+<a href="/register">Register</a>
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Petrol Pricer Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="sign-in.css" rel="stylesheet">
+    <link href="headers.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+  <body class ="text-center">
+    <div class="container">
+      <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+          <span class="fs-4">Petrol Pricer</span>
+        </a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
+          <li class="nav-item"><a href="/register" class="nav-link">Register</a></li>
+        </ul>
+      </header>
+    </div>
+    
+      
+      
+    
+    <main class="form-signin w-100 m-auto">
+      <div class="loginbox"> 
+        
+        
+        <form class="needs-validation" action="/login" method="POST">
+          <% if (messages.error) { %>
+            <div class="alert alert-danger">
+              <strong><%= messages.error %> </strong>
+            </div>
+          <% } %> 
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            <div class="form-floating" was-validated>
+                <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Enter Email(12 Characters Maximum)" maxlength="12" required>
+                <label for="floatingInput">Email</label>
+                <div class="invalid-feedback">
+                  Please enter your Email
+                </div>
+              </div>
+              <div class="form-floating" was-validated>
+                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password (10 Characters Maximum)" maxlength="10" required>
+                <label for="floatingPassword">Password </label>
+                <div class="invalid-feedback">
+                  Please enter your Password
+                </div>
+              </div>
+              
+              <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+            
+
+
+
+        </form>
+
+
+      </div>
+  
+</main>
+
+    
+  </body>
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top fixed-bottom">
+      <p class="text-center col-md-4 mb-0 text-muted ">&copy; 2023 Petrol Pricer</p>
+
+      <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+      </a>
+
+    </footer>
+  </div>
+
+
+</html>

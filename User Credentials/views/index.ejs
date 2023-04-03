@@ -1,0 +1,103 @@
+
+<!--<h1>hello <%= name %></h1>
+
+<form action="/logout?_method=DELETE" method="POST">
+
+    <button type="submit">Logout</button>
+</form>-->
+
+
+
+<!DOCTYPE html>
+<html style="background-color: white;">
+
+<head>
+
+    <title>Dashboard</title>
+    
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <div class="container">
+		<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+		  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+			<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+			<span class="fs-4">Petrol Pricer</span>
+		  </a>
+	
+		  <ul class="nav nav-pills">
+        <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><form action="/logout?_method=DELETE" method="POST">
+
+            <button type="submit">Logout</button>
+        </form></li>
+        <li class="nav-item"><a href="" class="nav-link">History</a></li>
+        <li class="nav-item"><a href="setting.html" class="nav-link">Settings</a></li>
+		  </ul>
+		</header>
+	  </div>
+
+</head>
+
+<body>
+
+  <style>.form-floating{max-width: 20%; margin-left:40%;}</style>
+
+  <h2 class="display-6 fw-bold">Get Gas Price</h2>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">Please enter the following information</p>
+  </div>
+
+  <style>.form-floating{margin-top:1%; margin-bottom: 1%;}</style>
+  
+  <form>
+  <div class="form-floating">
+    <input type="number" required class="form-control" id="gallons">
+    <label for="gallons">Number of Gallons Requested</label>
+
+  </div>
+
+  <div class="form-floating">
+    <input readonly type="text" class="form-control" id="address">
+    <label for="address">Address Pulled From Profile (Automatic)</label>
+  </div>
+
+  <div class="form-floating">
+    <input type="date" class="form-control" id="calendar">
+    <label for="calendar">Delivery Date</label>
+  </div>  
+
+
+    <style> h2{text-align: center; margin-top:2%;}
+      p{text-align: center;}
+    </style>
+
+      <style>#submit{margin-left:45%; width:10%;}</style>
+
+      <button id="submit" class="btn btn-lg btn-primary" type="submit">Get Price</button>
+
+      </form>
+
+      <div class="form-floating">
+        <input readonly type="text" class="form-control" id="suggested">
+        <label for="suggested">Suggested Price per Gallon (Automatic)</label>
+      </div>
+
+      <div class="form-floating">
+        <input readonly type="number" class="form-control" id="suggested">
+        <label for="suggested">Total Amount Due</label>
+      </div>
+    
+</body>
+
+<footer>
+
+
+  <div id="copyright" class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top fixed-bottom">
+      <p class="text-center col-md-4 mb-0 text-muted">&copy; 2023 Petrol Pricer</p>
+    </footer>
+    </div>
+</footer>
+
+
+</html>
+
