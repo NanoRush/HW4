@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body class="bg-right">
+    
+    <div class="container" >
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+            <span class="fs-4">Petrol Pricer</span>
+          </a>
+    
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="dashboard.html" class="nav-link active" aria-current="page">Dash board</a></li>
+            <li class="nav-item"><a href="index.html" class="nav-link">Log Out</a></li>
+          </ul>
+        </header>
+      </div>
+      
+
+      <div class="container-fluid mt-5">
+        <div class="row">
+          <div class="col-md-10 col-11 mx-auto">
+
+            <!--
+            <nav aria-label="breadcrumb" class="mb-3">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+              </ol>
+            </nav>
+            -->
+            
+            <div class="row">
+              <!--right side navbar-->
+                <div class="col-lg-3 col-md-4 d-md-block">
+                  <div class="card bg-common card-left">
+                    <div class="card-body">
+                      <nav class="nav d-md-block d-none"> <!--nav flex-column-->
+                        <a data-toggle='tab' class="nav-link active" aria-current="page" href="#profile">
+                        <i class="fas fa-user mr-1"></i> Profile</a>
+                        <a data-toggle='tab' class="nav-link" href="#account"> 
+                        <i class="fas fa-user-cog mr-1"></i> Account setting</a>
+                        <a data-toggle='tab' class="nav-link" href="#security"> 
+                        <i class="fas fa-user-shield mr-1"></i> Security</a>
+                        <a data-toggle='tab' class="nav-link" href="#billing">
+                        <i class="fas fa-money-check-alt mr-1"></i> Billing</a>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+
+                <!--right side div starts-->
+                <div class="col-lg-8 col-md-9">
+                  <div class="card">
+                    <div class="card-header border-bottom mb-3 d-md-none">
+                      <ul class="nav nav-tabs card-header-tabs nav-fill">
+                        <li class="nav-item">
+                          <a data-toggle="tab" class="nav-link active" aria-current="page" href="#profile">
+                          <i class="fas fa-user mr-1"></i></a>
+                        </li>
+                        <li class="nav-item">
+                          <a data-toggle="tab" class="nav-link" href="#account">
+                            <i class="fas fa-user-cog mr-1"></i></a>
+                        </li>
+                        <li class="nav-item">
+                          <a data-toggle="tab" class="nav-link" href="#security">
+                            <i class="fas fa-user-shield mr-1"></i></a>
+                        </li>
+                        <li class="nav-item">
+                          <a data-toggle="tab" class="nav-link" href="#billing">
+                            <i class="fas fa-money-check-alt mr-1"></i></a>
+                        </li>
+                        
+                      </ul>
+                    </div>
+
+                    <!--actual data which is live start-->
+                    <div class="card-body tab-content border-0">
+                      
+                      <!--//actual profile data-->
+                      <div class="tab-pane active" id="profile">
+                        <h6>YOUR PROFILE INFORMATION</h6>
+                        <hr>
+                        <form action="/setting" method="POST">
+                          <div class="mb-3">
+                            <label id="fullName" for="exampleFormControlInput1" class="form-label">Full Name</label>
+                            <input type="text" name="fullName" class="form-control" id="exampleFormControlInput1" value=" <%= fullName %> ">
+                            <!--<small class="form-text text-muted">Please enter your fullname</small>-->
+                          </div>
+                          
+                          <div class="mb-3">
+                            <label id="eMail" for="exampleFormControlInput1" class="form-label">Email address</label>
+                            <input type="email" name="userEmail" class="form-control" id="exampleFormControlInput1" value=" <%= userEmail %> ">
+                          </div>
+
+
+                          <button class="btn btn-outline-info" type="submit">Save Changes</button>
+                        </form>
+
+                      </div>
+
+                      <!--//actual account data-->
+                      <div class="tab-pane active" id="account">
+                        <h6>ACCOUNT SETTINGS</h6>
+                        <hr>
+                        <form action="/setting" method="POST">
+                          <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Username</label>
+                            <input type="text" name="userName" class="form-control" id="exampleFormControlInput1" value=" <%= userName %> ">
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Address 1</label>
+                            <input type="text" name="address" class="form-control" id="exampleFormControlInput1" value=" <%= address %> ">
+                          </div>
+
+
+                          <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">City</label>
+                            <input type="text" name="city" class="form-control" id="exampleFormControlInput1" value=" <%= city %> ">
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">State</label>
+                            <input type="text" name="state" class="form-control" id="exampleFormControlInput1" value=" <%= state %> ">
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Zip code</label>
+                            <input type="text" name="zipcode" class="form-control" id="exampleFormControlInput1" value=" <%= zipCode %> ">
+                          </div>
+
+                          <button class="btn btn-outline-info" type="button">Save Changes</button>
+                        </form>
+                      </div>
+
+                      <!--//actual security data-->
+                      <div class="tab-pane active" id="security">
+                        <h6>SECURITY SETTINGS</h6>
+                        <hr>
+                        <form action="/setting" method="POST">
+                          <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Change Password</label>
+                            <input style="margin-bottom:20px;" type="password" name="oldPassword" class="form-control" id="exampleFormControlInput1" placeholder="Your current password">
+                            <input style="margin-bottom:20px;" type="password" name="newPassword" class="form-control" id="exampleFormControlInput1" placeholder="Your new password">
+                            <input style="margin-bottom:20px;" type="password" name="verification" class="form-control" id="exampleFormControlInput1" placeholder="Verify you new password">
+                          </div>
+
+                          <button class="btn btn-outline-info" type="button">Save Changes</button>
+                        </form>
+                      </div>
+
+                      <!--//actual billing data-->
+                      <div class="tab-pane active" id="billing">
+                        <h6>PAYMENT METHOD</h6>
+                        <hr>
+                        <form action="/setting" method="POST">
+                          <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Card Number</label>
+                            <input type="text" name="cardNumber" class="form-control" id="exampleFormControlInput1" value=" <%= cardNumber %> ">
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Expiration</label>
+                            <input type="text" name="expiration" class="form-control" id="exampleFormControlInput1" value=" <%= expirationDate %> ">
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">CVV</label>
+                            <input type="text" name="cvv" class="form-control" id="exampleFormControlInput1" value=" <%= cvv %> ">
+                          </div>
+
+                          <button class="btn btn-outline-info" type="button">Save Changes</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top fixed-bottom">
+          <p class="col-md-4 mb-0 text-muted">&copy; 2022 Company, Inc</p>
+      
+          <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+          </a>
+      
+        </footer>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <script src="/connect.js"></script>
+    </body>
+</html>
