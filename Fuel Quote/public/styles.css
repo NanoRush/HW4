@@ -1,0 +1,58 @@
+#CompanyName{
+
+	display:inline-block;
+	position:absolute;
+	top: -2%;
+	left: 2%;
+	font-size: 75pt;
+	font-family:'Times New Roman', Times, serif;
+	color:blue;
+	text-align:center;
+	border: 10px solid black;
+	background-color: aqua;
+	width: 850px;
+	border-radius: 100px;
+
+}
+
+.login{
+	
+	display: inline-block;
+	color: green;
+	background-color: aqua;
+	border: 5px solid black;
+	padding: 10px;
+	
+}
+
+#login{
+	position:absolute;
+	top:3%;
+	left:90%;
+}
+
+#register{
+	position:absolute;
+	top:10%;
+	left:90%;
+}
+
+.login:hover{
+	cursor:pointer;
+	box-shadow: 5px 5px 5px inset;
+}
+
+p, img{
+	padding-left:3em;
+	font-family:'Times New Roman', Times, serif;
+	font-size:20pt;
+}
+
+#intro{
+	padding-top:13em;
+}
+
+#copyright{
+	font-size:10pt;
+}
+

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html style="background-color: white;">
+
+    <head>
+    <link href="bootstrap.min.css" rel="stylesheet">
+		
+    <title>Quote History</title>
+
+
+    <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+        <span class="fs-4">Petrol Pricer</span>
+    </a>
+
+        <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="/" class="nav-link">Logout</a></li>
+        <li class="nav-item"><a href="/register" class="nav-link">Register</a></li>
+        <li class="nav-item"><a href="/dashboard" id="dash" class="nav-link">Dashboard</a></li>
+  </ul>
+    </header>
+</div>
+
+</html>
+
+<body>
+
+  <div class="px-4 py-5 my-5 text-center">
+
+    <h1 class="display-5 fw-bold">Fuel Quote History</h1>
+    <p>(Refresh if history does not show up)</p>
+    
+  </div>
+
+
+  <style>
+    
+    .styled-table {
+      margin: auto;
+      margin-top: -3%;
+      border-collapse: collapse;
+      font-size: 0.9em;
+      font-family: sans-serif;
+      min-width: 400px;
+      box-shadow: 0 0 20px lightgray;
+
+}
+
+.styled-table thead tr {
+    background-color: #0d6efd;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #0d6efd;
+}
+
+  </style>
+
+
+  <table class="styled-table" id="table">
+    <thead>
+        <tr>
+            <th>Order of Quotes</th>
+            <th>Gallons Requested</th>
+            <th>Delivery Address</th>
+            <th>Delivery Date</th>
+            <th>Suggested Price per Gallon</th>
+            <th>Total Amount Due</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr hidden>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            
+        </tr>
+       
+
+    </tbody>
+</table>
+
+<script src = "dashboard.js"></script>
+
+<script>
+
+    let historyLength = 0;
+
+
+    const baseURL = 'http://localhost:3000/info';
+    window.addEventListener('load', getInfo);
+    
+    async function getInfo(e){
+
+        e.preventDefault();
+
+        const res = await fetch(baseURL, {method: 'GET'});
+
+        let data = await res.json();
+
+        historyLength = data.gallons.length;
+        
+        table = document.getElementById("table");
+
+        if(historyLength == table.rows.length - 2)
+            return;
+
+        for(let x = 0; x < historyLength; x++){
+
+            newRow = table.insertRow(-1);
+            newCell = newRow.insertCell(0);
+            newCell = newRow.insertCell(0);
+            newCell = newRow.insertCell(0);
+            newCell = newRow.insertCell(0);
+            newCell = newRow.insertCell(0);
+            newCell = newRow.insertCell(0);
+
+            newRow.cells[0].innerHTML = x + 1;
+            newRow.cells[1].innerHTML = data.gallons[x];
+            newRow.cells[2].innerHTML = data.address[x];
+            newRow.cells[3].innerHTML = data.date[x];
+            newRow.cells[4].innerHTML = data.suggested[x];
+            newRow.cells[5].innerHTML = data.total[x];
+
+            } 
+
+        }
+
+</script>
+
+</body>
+
+
+
+<footer>
+
+    <div id="copyright" class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top fixed-bottom">
+          <p class="text-center col-md-4 mb-0 text-muted">&copy; 2023 Petrol Pricer</p>
+        </footer>
+      </div>
+
+
+</footer>
+
+</html>
